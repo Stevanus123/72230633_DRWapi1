@@ -1,0 +1,66 @@
+C:\Users\SMAK SANG TIMUR 019\Documents\A TUGAS KULIAH\SEMESTER 4\DRW API\WebApplication1\WebApplication1\bin\Debug\net9.0\appsettings.Development.json
+C:\Users\SMAK SANG TIMUR 019\Documents\A TUGAS KULIAH\SEMESTER 4\DRW API\WebApplication1\WebApplication1\bin\Debug\net9.0\appsettings.json
+C:\Users\SMAK SANG TIMUR 019\Documents\A TUGAS KULIAH\SEMESTER 4\DRW API\WebApplication1\WebApplication1\bin\Debug\net9.0\WebApplication1.staticwebassets.endpoints.json
+C:\Users\SMAK SANG TIMUR 019\Documents\A TUGAS KULIAH\SEMESTER 4\DRW API\WebApplication1\WebApplication1\bin\Debug\net9.0\WebApplication1.exe
+C:\Users\SMAK SANG TIMUR 019\Documents\A TUGAS KULIAH\SEMESTER 4\DRW API\WebApplication1\WebApplication1\bin\Debug\net9.0\WebApplication1.deps.json
+C:\Users\SMAK SANG TIMUR 019\Documents\A TUGAS KULIAH\SEMESTER 4\DRW API\WebApplication1\WebApplication1\bin\Debug\net9.0\WebApplication1.runtimeconfig.json
+C:\Users\SMAK SANG TIMUR 019\Documents\A TUGAS KULIAH\SEMESTER 4\DRW API\WebApplication1\WebApplication1\bin\Debug\net9.0\WebApplication1.dll
+C:\Users\SMAK SANG TIMUR 019\Documents\A TUGAS KULIAH\SEMESTER 4\DRW API\WebApplication1\WebApplication1\bin\Debug\net9.0\WebApplication1.pdb
+C:\Users\SMAK SANG TIMUR 019\Documents\A TUGAS KULIAH\SEMESTER 4\DRW API\WebApplication1\WebApplication1\bin\Debug\net9.0\Microsoft.AspNetCore.OpenApi.dll
+C:\Users\SMAK SANG TIMUR 019\Documents\A TUGAS KULIAH\SEMESTER 4\DRW API\WebApplication1\WebApplication1\bin\Debug\net9.0\Microsoft.OpenApi.dll
+C:\Users\SMAK SANG TIMUR 019\Documents\A TUGAS KULIAH\SEMESTER 4\DRW API\WebApplication1\WebApplication1\obj\Debug\net9.0\WebApplication1.csproj.AssemblyReference.cache
+C:\Users\SMAK SANG TIMUR 019\Documents\A TUGAS KULIAH\SEMESTER 4\DRW API\WebApplication1\WebApplication1\obj\Debug\net9.0\WebApplication1.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\SMAK SANG TIMUR 019\Documents\A TUGAS KULIAH\SEMESTER 4\DRW API\WebApplication1\WebApplication1\obj\Debug\net9.0\WebApplication1.AssemblyInfoInputs.cache
+C:\Users\SMAK SANG TIMUR 019\Documents\A TUGAS KULIAH\SEMESTER 4\DRW API\WebApplication1\WebApplication1\obj\Debug\net9.0\WebApplication1.AssemblyInfo.cs
+C:\Users\SMAK SANG TIMUR 019\Documents\A TUGAS KULIAH\SEMESTER 4\DRW API\WebApplication1\WebApplication1\obj\Debug\net9.0\WebApplication1.csproj.CoreCompileInputs.cache
+C:\Users\SMAK SANG TIMUR 019\Documents\A TUGAS KULIAH\SEMESTER 4\DRW API\WebApplication1\WebApplication1\obj\Debug\net9.0\WebApplication1.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\SMAK SANG TIMUR 019\Documents\A TUGAS KULIAH\SEMESTER 4\DRW API\WebApplication1\WebApplication1\obj\Debug\net9.0\WebApplication1.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\SMAK SANG TIMUR 019\Documents\A TUGAS KULIAH\SEMESTER 4\DRW API\WebApplication1\WebApplication1\obj\Debug\net9.0\scopedcss\bundle\WebApplication1.styles.css
+C:\Users\SMAK SANG TIMUR 019\Documents\A TUGAS KULIAH\SEMESTER 4\DRW API\WebApplication1\WebApplication1\obj\Debug\net9.0\staticwebassets.build.json
+C:\Users\SMAK SANG TIMUR 019\Documents\A TUGAS KULIAH\SEMESTER 4\DRW API\WebApplication1\WebApplication1\obj\Debug\net9.0\staticwebassets.development.json
+C:\Users\SMAK SANG TIMUR 019\Documents\A TUGAS KULIAH\SEMESTER 4\DRW API\WebApplication1\WebApplication1\obj\Debug\net9.0\staticwebassets.build.endpoints.json
+C:\Users\SMAK SANG TIMUR 019\Documents\A TUGAS KULIAH\SEMESTER 4\DRW API\WebApplication1\WebApplication1\obj\Debug\net9.0\staticwebassets\msbuild.WebApplication1.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\SMAK SANG TIMUR 019\Documents\A TUGAS KULIAH\SEMESTER 4\DRW API\WebApplication1\WebApplication1\obj\Debug\net9.0\staticwebassets\msbuild.WebApplication1.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
+C:\Users\SMAK SANG TIMUR 019\Documents\A TUGAS KULIAH\SEMESTER 4\DRW API\WebApplication1\WebApplication1\obj\Debug\net9.0\staticwebassets\msbuild.build.WebApplication1.props
+C:\Users\SMAK SANG TIMUR 019\Documents\A TUGAS KULIAH\SEMESTER 4\DRW API\WebApplication1\WebApplication1\obj\Debug\net9.0\staticwebassets\msbuild.buildMultiTargeting.WebApplication1.props
+C:\Users\SMAK SANG TIMUR 019\Documents\A TUGAS KULIAH\SEMESTER 4\DRW API\WebApplication1\WebApplication1\obj\Debug\net9.0\staticwebassets\msbuild.buildTransitive.WebApplication1.props
+C:\Users\SMAK SANG TIMUR 019\Documents\A TUGAS KULIAH\SEMESTER 4\DRW API\WebApplication1\WebApplication1\obj\Debug\net9.0\staticwebassets.pack.json
+C:\Users\SMAK SANG TIMUR 019\Documents\A TUGAS KULIAH\SEMESTER 4\DRW API\WebApplication1\WebApplication1\obj\Debug\net9.0\WebAppli.7D14BD69.Up2Date
+C:\Users\SMAK SANG TIMUR 019\Documents\A TUGAS KULIAH\SEMESTER 4\DRW API\WebApplication1\WebApplication1\obj\Debug\net9.0\WebApplication1.dll
+C:\Users\SMAK SANG TIMUR 019\Documents\A TUGAS KULIAH\SEMESTER 4\DRW API\WebApplication1\WebApplication1\obj\Debug\net9.0\refint\WebApplication1.dll
+C:\Users\SMAK SANG TIMUR 019\Documents\A TUGAS KULIAH\SEMESTER 4\DRW API\WebApplication1\WebApplication1\obj\Debug\net9.0\WebApplication1.pdb
+C:\Users\SMAK SANG TIMUR 019\Documents\A TUGAS KULIAH\SEMESTER 4\DRW API\WebApplication1\WebApplication1\obj\Debug\net9.0\WebApplication1.genruntimeconfig.cache
+C:\Users\SMAK SANG TIMUR 019\Documents\A TUGAS KULIAH\SEMESTER 4\DRW API\WebApplication1\WebApplication1\obj\Debug\net9.0\ref\WebApplication1.dll
+D:\SEMESTER 4\DRW API\WebApplication1\WebApplication1\bin\Debug\net9.0\appsettings.Development.json
+D:\SEMESTER 4\DRW API\WebApplication1\WebApplication1\bin\Debug\net9.0\appsettings.json
+D:\SEMESTER 4\DRW API\WebApplication1\WebApplication1\bin\Debug\net9.0\WebApplication1.staticwebassets.endpoints.json
+D:\SEMESTER 4\DRW API\WebApplication1\WebApplication1\bin\Debug\net9.0\WebApplication1.exe
+D:\SEMESTER 4\DRW API\WebApplication1\WebApplication1\bin\Debug\net9.0\WebApplication1.deps.json
+D:\SEMESTER 4\DRW API\WebApplication1\WebApplication1\bin\Debug\net9.0\WebApplication1.runtimeconfig.json
+D:\SEMESTER 4\DRW API\WebApplication1\WebApplication1\bin\Debug\net9.0\WebApplication1.dll
+D:\SEMESTER 4\DRW API\WebApplication1\WebApplication1\bin\Debug\net9.0\WebApplication1.pdb
+D:\SEMESTER 4\DRW API\WebApplication1\WebApplication1\bin\Debug\net9.0\Microsoft.AspNetCore.OpenApi.dll
+D:\SEMESTER 4\DRW API\WebApplication1\WebApplication1\bin\Debug\net9.0\Microsoft.OpenApi.dll
+D:\SEMESTER 4\DRW API\WebApplication1\WebApplication1\obj\Debug\net9.0\WebApplication1.csproj.AssemblyReference.cache
+D:\SEMESTER 4\DRW API\WebApplication1\WebApplication1\obj\Debug\net9.0\WebApplication1.GeneratedMSBuildEditorConfig.editorconfig
+D:\SEMESTER 4\DRW API\WebApplication1\WebApplication1\obj\Debug\net9.0\WebApplication1.AssemblyInfoInputs.cache
+D:\SEMESTER 4\DRW API\WebApplication1\WebApplication1\obj\Debug\net9.0\WebApplication1.AssemblyInfo.cs
+D:\SEMESTER 4\DRW API\WebApplication1\WebApplication1\obj\Debug\net9.0\WebApplication1.csproj.CoreCompileInputs.cache
+D:\SEMESTER 4\DRW API\WebApplication1\WebApplication1\obj\Debug\net9.0\WebApplication1.MvcApplicationPartsAssemblyInfo.cs
+D:\SEMESTER 4\DRW API\WebApplication1\WebApplication1\obj\Debug\net9.0\WebApplication1.MvcApplicationPartsAssemblyInfo.cache
+D:\SEMESTER 4\DRW API\WebApplication1\WebApplication1\obj\Debug\net9.0\scopedcss\bundle\WebApplication1.styles.css
+D:\SEMESTER 4\DRW API\WebApplication1\WebApplication1\obj\Debug\net9.0\staticwebassets.build.json
+D:\SEMESTER 4\DRW API\WebApplication1\WebApplication1\obj\Debug\net9.0\staticwebassets.development.json
+D:\SEMESTER 4\DRW API\WebApplication1\WebApplication1\obj\Debug\net9.0\staticwebassets.build.endpoints.json
+D:\SEMESTER 4\DRW API\WebApplication1\WebApplication1\obj\Debug\net9.0\staticwebassets\msbuild.WebApplication1.Microsoft.AspNetCore.StaticWebAssets.props
+D:\SEMESTER 4\DRW API\WebApplication1\WebApplication1\obj\Debug\net9.0\staticwebassets\msbuild.WebApplication1.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
+D:\SEMESTER 4\DRW API\WebApplication1\WebApplication1\obj\Debug\net9.0\staticwebassets\msbuild.build.WebApplication1.props
+D:\SEMESTER 4\DRW API\WebApplication1\WebApplication1\obj\Debug\net9.0\staticwebassets\msbuild.buildMultiTargeting.WebApplication1.props
+D:\SEMESTER 4\DRW API\WebApplication1\WebApplication1\obj\Debug\net9.0\staticwebassets\msbuild.buildTransitive.WebApplication1.props
+D:\SEMESTER 4\DRW API\WebApplication1\WebApplication1\obj\Debug\net9.0\staticwebassets.pack.json
+D:\SEMESTER 4\DRW API\WebApplication1\WebApplication1\obj\Debug\net9.0\WebAppli.7D14BD69.Up2Date
+D:\SEMESTER 4\DRW API\WebApplication1\WebApplication1\obj\Debug\net9.0\WebApplication1.dll
+D:\SEMESTER 4\DRW API\WebApplication1\WebApplication1\obj\Debug\net9.0\refint\WebApplication1.dll
+D:\SEMESTER 4\DRW API\WebApplication1\WebApplication1\obj\Debug\net9.0\WebApplication1.pdb
+D:\SEMESTER 4\DRW API\WebApplication1\WebApplication1\obj\Debug\net9.0\WebApplication1.genruntimeconfig.cache
+D:\SEMESTER 4\DRW API\WebApplication1\WebApplication1\obj\Debug\net9.0\ref\WebApplication1.dll

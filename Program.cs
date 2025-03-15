@@ -9,10 +9,10 @@ builder.Services.AddOpenApi();
 
 
 //Dependency Injection
-builder.Services.AddSingleton<ICategory, CategoryDal>();
+builder.Services.AddSingleton<ICategory, CategoryNew06>();
 
 //Dependency Injection Instructor
-builder.Services.AddSingleton<IInstructor, InstructorDal>();
+builder.Services.AddSingleton<IInstructor, InstructorNew06>();
 
 var app = builder.Build();
 
@@ -29,6 +29,8 @@ var summaries = new[]
     "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
 };
 
+
+// bawaan dari template
 app.MapGet("/weatherforecast", () =>
 {
     var forecast = Enumerable.Range(1, 5).Select(index =>
@@ -48,6 +50,8 @@ app.MapGet("/coba", (string? id) =>
     return $"Hello, {id}!";
 });
 
+
+// coba dengan parameter (awal)
 app.MapGet("/coba/{nama}", (string nama) => $"Hello, {nama}!");
 
 app.MapGet("/coba/luas-segitiga", (double alas, double tinggi) =>
@@ -62,6 +66,8 @@ app.MapGet("/coba/luas-lingkaran", (double radius) =>
     return $"Luas lingkaran dengan radius={radius} adalah {luas}, dengan keliling adalah {keliling}";
 });
 
+
+// category implementation
 app.MapGet("api/v1/categories", (ICategory categoryData)=>
 {
     var categories = categoryData.GetCategories();
@@ -88,39 +94,39 @@ app.MapPut("api/v1/categories", (ICategory categoryData, Category category)=>
 
 app.MapDelete("api/v1/categories/{id}", (ICategory categoryData, int id)=>
 {
-    var deletedCategory = categoryData.DeleteCategory(id);
-    return deletedCategory;
+    categoryData.DeleteCategory(id);
 });
 
+
+
+// tak kasih tanda biar agak jauh dan beda
+// instructor implementation ini tugasnya
 app.MapGet("api/v1/instructors", (IInstructor instructorData)=>
 {
-    var instructors = instructorData.GetInstructors();
-    return instructors;
+    return instructorData.GetInstructors();
+
 });
 
 app.MapGet("api/v1/instructors/{id}", (IInstructor instructorData, int id)=>
 {
-    var instructor = instructorData.GetInstructorById(id);
-    return instructor;
+    return instructorData.GetInstructorById(id);
 });
 
 app.MapDelete("api/v1/instructors/{id}", (IInstructor instructorData, int id)=>
 {
-    var deletedInstructor = instructorData.DeleteInstructor(id);
-    return deletedInstructor;
+    instructorData.DeleteInstructor(id);
 });
 
 app.MapPost("api/v1/instructors", (IInstructor instructorData, Instructor instructor)=>
 {
-    var newInstructor = instructorData.InsertInstructor(instructor);
-    return newInstructor;
+    return instructorData.InsertInstructor(instructor);
 });
 
 app.MapPut("api/v1/instructors", (IInstructor instructorData, Instructor instructor)=>
 {
-    var updatedInstructor = instructorData.UpdateInstructor(instructor);
-    return updatedInstructor;
+    return instructorData.UpdateInstructor(instructor);
 });
+// ini gak dari gpt atau apa ya kak, full buatan atas otak sendiri
 
 app.Run();
 

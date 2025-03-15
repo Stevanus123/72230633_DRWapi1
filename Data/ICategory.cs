@@ -13,7 +13,7 @@ public interface ICategory
 
     Category UpdateCategory(Category category);
 
-    Category DeleteCategory(int categoryId);
+    void DeleteCategory(int categoryId);
 
 
 }

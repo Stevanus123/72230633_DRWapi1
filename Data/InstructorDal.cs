@@ -13,47 +13,46 @@ public class InstructorDal : IInstructor
         {
             new Instructor
             {
-                InstructorId = 1,
-                InstructorName = "John Doe",
-                InstructorEmail = "john-doe@gmail.com",
-                InstructorPhone = "123-456-7890",
-                InstructorAddress = "123 Main St",
-                InstructorCity = "New York"
+                InstructorIdku = 1,
+                InstructorNameku = "John Doe",
+                InstructorEmailku = "john-doe@gmail.com",
+                InstructorPhoneku = "123-456-7890",
+                InstructorAddressku = "123 Main St",
+                InstructorCityku = "New York"
             },
             new Instructor
             {
-                InstructorId = 2,
-                InstructorName = "Jane Doe",
-                InstructorEmail = "jane-doe@gmail.com",
-                InstructorPhone = "123-456-7890",
-                InstructorAddress = "123 Main St",
-                InstructorCity = "New York"
+                InstructorIdku = 2,
+                InstructorNameku = "Jane Doe",
+                InstructorEmailku = "jane-doe@gmail.com",
+                InstructorPhoneku = "123-456-7890",
+                InstructorAddressku = "123 Main St",
+                InstructorCityku = "New York"
             },
             new Instructor
             {
-                InstructorId = 3,
-                InstructorName = "John Smith",
-                InstructorEmail = "john-smith@gmail.com",
-                InstructorPhone = "123-456-7890",
-                InstructorAddress = "123 Main St",
-                InstructorCity = "New York"
+                InstructorIdku = 3,
+                InstructorNameku = "John Smith",
+                InstructorEmailku = "john-smith@gmail.com",
+                InstructorPhoneku = "123-456-7890",
+                InstructorAddressku = "123 Main St",
+                InstructorCityku = "New York"
             }
         };
     }
 
-    public Instructor DeleteInstructor(int instructorId)
+    public void DeleteInstructor(int instructorId)
     {
         var instructor = GetInstructorById(instructorId);
         if (instructor != null)
         {
             _instructors.Remove(instructor);
         }
-        return instructor;
     }
 
     public Instructor GetInstructorById(int instructorId)
     {
-        var instructor = _instructors.FirstOrDefault(x => x.InstructorId == instructorId);
+        var instructor = _instructors.FirstOrDefault(x => x.InstructorIdku == instructorId);
         if (instructor == null)
         {
             throw new Exception("Instructor not found");
@@ -74,14 +73,14 @@ public class InstructorDal : IInstructor
 
     public Instructor UpdateInstructor(Instructor instructor)
     {
-        var existingInstructor = GetInstructorById(instructor.InstructorId);
+        var existingInstructor = GetInstructorById(instructor.InstructorIdku);
         if (existingInstructor != null)
         {
-            existingInstructor.InstructorName = instructor.InstructorName;
-            existingInstructor.InstructorEmail = instructor.InstructorEmail;
-            existingInstructor.InstructorPhone = instructor.InstructorPhone;
-            existingInstructor.InstructorAddress = instructor.InstructorAddress;
-            existingInstructor.InstructorCity = instructor.InstructorCity;
+            existingInstructor.InstructorNameku = instructor.InstructorNameku;
+            existingInstructor.InstructorEmailku = instructor.InstructorEmailku;
+            existingInstructor.InstructorPhoneku = instructor.InstructorPhoneku;
+            existingInstructor.InstructorAddressku = instructor.InstructorAddressku;
+            existingInstructor.InstructorCityku = instructor.InstructorCityku;
         }
         return existingInstructor;
     }

@@ -45,19 +45,18 @@ public class CategoryDal : ICategory
     {
         var existingCategory = GetCategoryById(category.CategoryId);
         if (existingCategory != null)
-        {
             existingCategory.CategoryName = category.CategoryName;
-        }
+        else
+            throw new Exception("Category not found");
         return existingCategory;
     }
 
-    Category ICategory.DeleteCategory(int categoryId)
+    public void DeleteCategory(int categoryId)
     {
         var category = GetCategoryById(categoryId);
         if (category != null)
         {
             _categories.Remove(category);
         }
-        return category;
     }
 }

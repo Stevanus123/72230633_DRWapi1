@@ -13,5 +13,5 @@ public interface IInstructor
 
     Instructor UpdateInstructor(Instructor instructor);
 
-    Instructor DeleteInstructor(int instructorId);
+    void DeleteInstructor(int instructorId);
 }

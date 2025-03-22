@@ -14,6 +14,9 @@ builder.Services.AddSingleton<ICategory, CategoryNew06>();
 //Dependency Injection Instructor
 builder.Services.AddSingleton<IInstructor, InstructorNew06>();
 
+//Dependency Injection Course
+builder.Services.AddSingleton<ICourse, CourseNew07>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -127,6 +130,31 @@ app.MapPut("api/v1/instructors", (IInstructor instructorData, Instructor instruc
     return instructorData.UpdateInstructor(instructor);
 });
 // ini gak dari gpt atau apa ya kak, full buatan atas otak sendiri
+
+app.MapGet("api/v1/course", (ICourse courseData) =>
+{
+    return courseData.GetCourses();
+});
+
+app.MapGet("api/v1/course/{id}", (ICourse courseData, int id) => 
+{
+    return courseData.GetCourseById(id);
+});
+
+app.MapPost("api/v1/course", (ICourse courseData, Course course) =>
+{
+   return courseData.AddCourse(course); 
+});
+
+app.MapPut("api/v1/course", (ICourse courseData, Course course) =>
+{
+    return courseData.UpdateCourse(course);
+});
+
+app.MapDelete("api/v1/course/{id}", (ICourse courseData, int id)=>
+{
+    courseData.DeleteCourse(id);
+});
 
 app.Run();
 

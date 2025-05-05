@@ -12,7 +12,7 @@ public class CategoryNew06 : ICategory
     public CategoryNew06(IConfiguration configuration)
     {
         _configuration = configuration;
-        _connStr = _configuration.GetConnectionString("DefaultConnection");
+        _connStr = _configuration.GetConnectionString("DefaultConnection") ?? string.Empty;
     }
 
     public List<Category> GetCategories()
@@ -51,7 +51,7 @@ public class CategoryNew06 : ICategory
             {
                 rd06.Read();
                 category.CategoryId = Convert.ToInt32(rd06["CategoryId"]);
-                category.CategoryName = rd06["CategoryName"].ToString();
+                category.CategoryName = rd06["CategoryName"].ToString() ?? string.Empty;
             }
             else
             {

@@ -1,3 +1,4 @@
+using Microsoft.EntityFrameworkCore;
 using WebApplication1.Data;
 using WebApplication1.Models;
 
@@ -7,15 +8,18 @@ var builder = WebApplication.CreateBuilder(args);
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
 
+// Menambahkan EF Core
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+    options.UseMySQL(builder.Configuration.GetConnectionString("DefaultConnection") ?? String.Empty));
 
-//Dependency Injection
-builder.Services.AddSingleton<ICategory, CategoryNew06>();
+//Sambung dengan CategoryEF
+builder.Services.AddScoped<ICategory, CategoryEF>();
 
-//Dependency Injection Instructor
-builder.Services.AddSingleton<IInstructor, InstructorNew06>();
+//Sambung dengan InstructorEF
+builder.Services.AddScoped<IInstructor, InstructorEF>();
 
-//Dependency Injection Course
-builder.Services.AddSingleton<ICourse, CourseNew07>();
+//Sambung dengan CourseEF
+builder.Services.AddScoped<ICourse, CourseEF>();
 
 var app = builder.Build();
 
@@ -131,6 +135,8 @@ app.MapPut("api/v1/instructors", (IInstructor instructorData, Instructor instruc
 });
 // ini gak dari gpt atau apa ya kak, full buatan atas otak sendiri
 
+
+// course implementation
 app.MapGet("api/v1/course", (ICourse courseData) =>
 {
     return courseData.GetCourses();

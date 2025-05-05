@@ -13,30 +13,30 @@ public class InstructorDal : IInstructor
         {
             new Instructor
             {
-                InstructorIdku = 1,
-                InstructorNameku = "John Doe",
-                InstructorEmailku = "john-doe@gmail.com",
-                InstructorPhoneku = "123-456-7890",
-                InstructorAddressku = "123 Main St",
-                InstructorCityku = "New York"
+                InstructorId = 1,
+                InstructorName = "John Doe",
+                InstructorEmail = "john-doe@gmail.com",
+                InstructorPhone = "123-456-7890",
+                InstructorAddress = "123 Main St",
+                InstructorCity = "New York"
             },
             new Instructor
             {
-                InstructorIdku = 2,
-                InstructorNameku = "Jane Doe",
-                InstructorEmailku = "jane-doe@gmail.com",
-                InstructorPhoneku = "123-456-7890",
-                InstructorAddressku = "123 Main St",
-                InstructorCityku = "New York"
+                InstructorId = 2,
+                InstructorName = "Jane Doe",
+                InstructorEmail = "jane-doe@gmail.com",
+                InstructorPhone = "123-456-7890",
+                InstructorAddress = "123 Main St",
+                InstructorCity = "New York"
             },
             new Instructor
             {
-                InstructorIdku = 3,
-                InstructorNameku = "John Smith",
-                InstructorEmailku = "john-smith@gmail.com",
-                InstructorPhoneku = "123-456-7890",
-                InstructorAddressku = "123 Main St",
-                InstructorCityku = "New York"
+                InstructorId = 3,
+                InstructorName = "John Smith",
+                InstructorEmail = "john-smith@gmail.com",
+                InstructorPhone = "123-456-7890",
+                InstructorAddress = "123 Main St",
+                InstructorCity = "New York"
             }
         };
     }
@@ -52,7 +52,7 @@ public class InstructorDal : IInstructor
 
     public Instructor GetInstructorById(int instructorId)
     {
-        var instructor = _instructors.FirstOrDefault(x => x.InstructorIdku == instructorId);
+        var instructor = _instructors.FirstOrDefault(x => x.InstructorId == instructorId);
         if (instructor == null)
         {
             throw new Exception("Instructor not found");
@@ -73,14 +73,18 @@ public class InstructorDal : IInstructor
 
     public Instructor UpdateInstructor(Instructor instructor)
     {
-        var existingInstructor = GetInstructorById(instructor.InstructorIdku);
+        var existingInstructor = GetInstructorById(instructor.InstructorId);
         if (existingInstructor != null)
         {
-            existingInstructor.InstructorNameku = instructor.InstructorNameku;
-            existingInstructor.InstructorEmailku = instructor.InstructorEmailku;
-            existingInstructor.InstructorPhoneku = instructor.InstructorPhoneku;
-            existingInstructor.InstructorAddressku = instructor.InstructorAddressku;
-            existingInstructor.InstructorCityku = instructor.InstructorCityku;
+            existingInstructor.InstructorName = instructor.InstructorName;
+            existingInstructor.InstructorEmail = instructor.InstructorEmail;
+            existingInstructor.InstructorPhone = instructor.InstructorPhone;
+            existingInstructor.InstructorAddress = instructor.InstructorAddress;
+            existingInstructor.InstructorCity = instructor.InstructorCity;
+        }
+        else
+        {
+            throw new Exception("Instructor not found for update");
         }
         return existingInstructor;
     }

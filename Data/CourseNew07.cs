@@ -13,98 +13,103 @@ public class CourseNew07 : ICourse
     public CourseNew07(IConfiguration configuration)
     {
         _configuration = configuration;
-        conn = _configuration.GetConnectionString("DefaultConnection");
+        conn = _configuration.GetConnectionString("DefaultConnection") ?? string.Empty;
     }
 
-    public IEnumerable<ViewCourseWithCategory> GetCourses()
+    public Course AddCourse(Course course)
+    {
+        throw new NotImplementedException();
+    }
+
+    public void DeleteCourse(int courseId)
     {
         using (MySqlConnection conn = new MySqlConnection(this.conn))
         {
-            string strConn = @"SELECT courseId, courseName, courseDescription, duration, a.categoryId, categoryName 
-                            FROM course a inner join category b on a.categoryId = b.categoryId";
+            string strConn = @"DELETE FROM course WHERE courseId = @courseId";
             MySqlCommand cmd = new MySqlCommand(strConn, conn);
-            List<ViewCourseWithCategory> courses = new List<ViewCourseWithCategory>();
             try
             {
                 conn.Open();
-                MySqlDataReader dr = cmd.ExecuteReader();
-                while (dr.Read())
+                cmd.Parameters.AddWithValue("@courseId", courseId);
+                int res = cmd.ExecuteNonQuery();
+                if (res == 0)
                 {
-                    ViewCourseWithCategory course = new ViewCourseWithCategory();
-                    course.CourseId = Convert.ToInt32(dr["CourseId"]);
-                    course.CourseName = dr["CourseName"].ToString();
-                    course.CourseDescription = dr["CourseDescription"].ToString();
-                    course.Duration = Convert.ToInt32(dr["Duration"]);
-                    course.CategoryId = Convert.ToInt32(dr["CategoryId"]);
-                    course.CateroryName = dr["CategoryName"].ToString();
+                    throw new Exception("Yahh ga ditemuin???");
+                }
+            }
+            catch (MySqlException ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            finally
+            {
+                cmd.Dispose();
+                conn.Close();
+            }
+        }
+    }
+
+    public Course GetCourseById(int courseId)
+    {
+        using (MySqlConnection conn = new MySqlConnection(this.conn))
+        {
+            string strConn = @"SELECT * FROM course WHERE courseId = @courseId";
+            MySqlCommand cmd = new MySqlCommand(strConn, conn);
+            Course course = new Course();
+            try
+            {
+                conn.Open();
+                cmd.Parameters.AddWithValue("@courseId", courseId);
+                MySqlDataReader reader = cmd.ExecuteReader();
+                if (reader.Read())
+                {
+                    course = new Course()
+                    {
+                        CourseId = reader.GetInt32("courseId"),
+                        CourseName = reader.GetString("courseName"),
+                        CourseDescription = reader.GetString("courseDescription"),
+                        Duration = reader.GetDouble("duration"),
+                        CategoryId = reader.GetInt32("categoryId")
+                    };
+                }
+                return course;
+            }
+            catch (MySqlException ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            finally
+            {
+                cmd.Dispose();
+                conn.Close();
+            }
+        }
+    }
+
+    public List<Course> GetCourses()
+    {
+        using (MySqlConnection conn = new MySqlConnection(this.conn))
+        {
+            string strConn = @"SELECT * FROM course ORDER BY courseId DESC";
+            MySqlCommand cmd = new MySqlCommand(strConn, conn);
+            List<Course> courses = new List<Course>();
+            try
+            {
+                conn.Open();
+                MySqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    Course course = new Course()
+                    {
+                        CourseId = reader.GetInt32("courseId"),
+                        CourseName = reader.GetString("courseName"),
+                        CourseDescription = reader.GetString("courseDescription"),
+                        Duration = reader.GetDouble("duration"),
+                        CategoryId = reader.GetInt32("categoryId")
+                    };
                     courses.Add(course);
                 }
                 return courses;
-            }
-            catch (MySqlException ex)
-            {
-                throw new Exception(ex.Message);
-            }
-            finally
-            {
-                cmd.Dispose();
-                conn.Close();
-            }
-        }
-    }
-
-    public ViewCourseWithCategory GetCourseById(int courseId)
-    {
-        using (MySqlConnection conn = new MySqlConnection(this.conn))
-        {
-            string strConn = @"SELECT courseId, courseName, courseDescription, duration, categoryId, categoryName 
-                            FROM ViewCourseWithCategory WHERE courseId = @courseId";
-            MySqlCommand cmd = new MySqlCommand(strConn, conn);
-            cmd.Parameters.AddWithValue("@courseId", courseId);
-            ViewCourseWithCategory course = new ViewCourseWithCategory();
-            try
-            {
-                conn.Open();
-                MySqlDataReader dr = cmd.ExecuteReader();
-                while (dr.Read())
-                {
-                    course.CourseId = Convert.ToInt32(dr["CourseId"]);
-                    course.CourseName = dr["CourseName"].ToString();
-                    course.CourseDescription = dr["CourseDescription"].ToString();
-                    course.Duration = Convert.ToInt32(dr["Duration"]);
-                    course.CategoryId = Convert.ToInt32(dr["CategoryId"]);
-                    course.CateroryName = dr["CategoryName"].ToString();
-                }
-                return course;
-            }
-            catch (MySqlException ex)
-            {
-                throw new Exception(ex.Message);
-            }
-            finally
-            {
-                cmd.Dispose();
-                conn.Close();
-            }
-        }
-    }
-    public Course AddCourse(Course course)
-    {
-        using (MySqlConnection conn = new MySqlConnection(this.conn))
-        {
-            string strConn = @"INSERT INTO course (courseName, courseDescription, duration, categoryId) VALUES
-            (@courseName, @courseDescription, @duration, @categoryId); SELECT LAST_INSERT_ID();";
-            MySqlCommand cmd = new MySqlCommand(strConn, conn);
-            try
-            {
-                conn.Open();
-                cmd.Parameters.AddWithValue("@courseName", course.CourseName);
-                cmd.Parameters.AddWithValue("@courseDescription", course.CourseDescription);
-                cmd.Parameters.AddWithValue("@duration", course.Duration);
-                cmd.Parameters.AddWithValue("@categoryId", course.CategoryId);
-                int courseId = Convert.ToInt32(cmd.ExecuteScalar());
-                course.CourseId = courseId;
-                return course;
             }
             catch (MySqlException ex)
             {
@@ -127,12 +132,16 @@ public class CourseNew07 : ICourse
             try
             {
                 conn.Open();
+                cmd.Parameters.AddWithValue("@courseId", course.CourseId);
                 cmd.Parameters.AddWithValue("@courseName", course.CourseName);
                 cmd.Parameters.AddWithValue("@courseDescription", course.CourseDescription);
                 cmd.Parameters.AddWithValue("@duration", course.Duration);
                 cmd.Parameters.AddWithValue("@categoryId", course.CategoryId);
-                cmd.Parameters.AddWithValue("@courseId", course.CourseId);
-                cmd.ExecuteNonQuery();
+                int res = cmd.ExecuteNonQuery();
+                if (res == 0)
+                {
+                    throw new Exception("Kamu mau update data yang mana? orang ga ada??");
+                }
                 return course;
             }
             catch (MySqlException ex)
@@ -141,28 +150,6 @@ public class CourseNew07 : ICourse
             }
             finally
             {
-                cmd.Dispose();
-                conn.Close();
-            }
-        }
-    }
-    public void DeleteCourse(int courseId)
-    {
-        using(MySqlConnection conn = new MySqlConnection(this.conn)){
-            string strConn = @"DELETE FROM course WHERE courseId = @courseId";
-            MySqlCommand cmd = new MySqlCommand(strConn, conn);
-            try{
-                conn.Open();
-                cmd.Parameters.AddWithValue("@courseId", courseId);
-                int res = cmd.ExecuteNonQuery();
-                if(res == 0){
-                    throw new Exception("Yahh ga ditemuin???");
-                }
-            }
-            catch (MySqlException ex) {
-                throw new Exception(ex.Message);
-            }
-            finally{
                 cmd.Dispose();
                 conn.Close();
             }

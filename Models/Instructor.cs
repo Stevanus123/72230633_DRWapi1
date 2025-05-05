@@ -1,13 +1,15 @@
 using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace WebApplication1.Models;
 
 public class Instructor
 {
-    public int InstructorIdku { get; set; }
-    public string InstructorNameku { get; set; } = null!;
-    public string InstructorEmailku { get; set; } = null!;
-    public string InstructorPhoneku { get; set; } = null!;
-    public string InstructorAddressku { get; set; } = null!;
-    public string InstructorCityku { get; set; } = null!;
+    [Key]
+    public int InstructorId { get; set; }
+    public string InstructorName { get; set; } = null!;
+    public string InstructorEmail { get; set; } = null!;
+    public string InstructorPhone { get; set; } = null!;
+    public string InstructorAddress { get; set; } = null!;
+    public string InstructorCity { get; set; } = null!;
 }

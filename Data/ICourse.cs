@@ -5,9 +5,9 @@ namespace WebApplication1.Data;
 
 public interface ICourse
 {
-    IEnumerable<ViewCourseWithCategory> GetCourses();
+    List<Course> GetCourses();
 
-    ViewCourseWithCategory GetCourseById(int courseId);
+    Course GetCourseById(int courseId);
 
     Course AddCourse(Course course);
 

@@ -12,7 +12,7 @@ public class InstructorNew06 : IInstructor
     public InstructorNew06(IConfiguration configuration)
     {
         _configuration06 = configuration;
-        _conn06 = _configuration06.GetConnectionString("DefaultConnection");
+        _conn06 = _configuration06.GetConnectionString("DefaultConnection") ?? string.Empty;
     }
 
     // ini murni buatan sendiri ya kak
@@ -29,12 +29,12 @@ public class InstructorNew06 : IInstructor
             if(rd06.HasRows)
             {
                 rd06.Read();
-                instructor06.InstructorIdku = rd06.GetInt32("InstructorId");
-                instructor06.InstructorNameku = rd06.GetString("InstructorName");
-                instructor06.InstructorEmailku = rd06.GetString("InstructorEmail");
-                instructor06.InstructorPhoneku = rd06.GetString("InstructorPhone");
-                instructor06.InstructorAddressku = rd06.GetString("InstructorAddress");
-                instructor06.InstructorCityku = rd06.GetString("InstructorCity");
+                instructor06.InstructorId = rd06.GetInt32("InstructorId");
+                instructor06.InstructorName = rd06.GetString("InstructorName");
+                instructor06.InstructorEmail = rd06.GetString("InstructorEmail");
+                instructor06.InstructorPhone = rd06.GetString("InstructorPhone");
+                instructor06.InstructorAddress = rd06.GetString("InstructorAddress");
+                instructor06.InstructorCity = rd06.GetString("InstructorCity");
             }
             else
             {
@@ -56,12 +56,12 @@ public class InstructorNew06 : IInstructor
             while (rd06.Read())
             {
                 Instructor instructor = new Instructor();
-                instructor.InstructorIdku = rd06.GetInt32("InstructorId");
-                instructor.InstructorNameku = rd06.GetString("InstructorName");
-                instructor.InstructorEmailku = rd06.GetString("InstructorEmail");
-                instructor.InstructorPhoneku = rd06.GetString("InstructorPhone");
-                instructor.InstructorAddressku = rd06.GetString("InstructorAddress");
-                instructor.InstructorCityku = rd06.GetString("InstructorCity");
+                instructor.InstructorId = rd06.GetInt32("InstructorId");
+                instructor.InstructorName = rd06.GetString("InstructorName");
+                instructor.InstructorEmail = rd06.GetString("InstructorEmail");
+                instructor.InstructorPhone = rd06.GetString("InstructorPhone");
+                instructor.InstructorAddress = rd06.GetString("InstructorAddress");
+                instructor.InstructorCity = rd06.GetString("InstructorCity");
                 instructors06.Add(instructor);
             }
             rd06.Close();
@@ -79,13 +79,13 @@ public class InstructorNew06 : IInstructor
             MySqlCommand cmd06 = new MySqlCommand(sql06, conn06);
             try
             {
-                cmd06.Parameters.AddWithValue("@InstructorName", instructor.InstructorNameku);
-                cmd06.Parameters.AddWithValue("@InstructorEmail", instructor.InstructorEmailku);
-                cmd06.Parameters.AddWithValue("@InstructorPhone", instructor.InstructorPhoneku);
-                cmd06.Parameters.AddWithValue("@InstructorAddress", instructor.InstructorAddressku);
-                cmd06.Parameters.AddWithValue("@InstructorCity", instructor.InstructorCityku);
+                cmd06.Parameters.AddWithValue("@InstructorName", instructor.InstructorName);
+                cmd06.Parameters.AddWithValue("@InstructorEmail", instructor.InstructorEmail);
+                cmd06.Parameters.AddWithValue("@InstructorPhone", instructor.InstructorPhone);
+                cmd06.Parameters.AddWithValue("@InstructorAddress", instructor.InstructorAddress);
+                cmd06.Parameters.AddWithValue("@InstructorCity", instructor.InstructorCity);
                 int instructorId = Convert.ToInt32(cmd06.ExecuteScalar());
-                instructor.InstructorIdku = instructorId;
+                instructor.InstructorId = instructorId;
                 return instructor;
             }
             catch (Exception ex)
@@ -109,12 +109,12 @@ public class InstructorNew06 : IInstructor
             MySqlCommand cmd06 = new MySqlCommand(sql06, conn06);
             try
             {
-                cmd06.Parameters.AddWithValue("@InstructorName", instructor.InstructorNameku);
-                cmd06.Parameters.AddWithValue("@InstructorEmail", instructor.InstructorEmailku);
-                cmd06.Parameters.AddWithValue("@InstructorPhone", instructor.InstructorPhoneku);
-                cmd06.Parameters.AddWithValue("@InstructorAddress", instructor.InstructorAddressku);
-                cmd06.Parameters.AddWithValue("@InstructorCity", instructor.InstructorCityku);
-                cmd06.Parameters.AddWithValue("@InstructorId", instructor.InstructorIdku);
+                cmd06.Parameters.AddWithValue("@InstructorName", instructor.InstructorName);
+                cmd06.Parameters.AddWithValue("@InstructorEmail", instructor.InstructorEmail);
+                cmd06.Parameters.AddWithValue("@InstructorPhone", instructor.InstructorPhone);
+                cmd06.Parameters.AddWithValue("@InstructorAddress", instructor.InstructorAddress);
+                cmd06.Parameters.AddWithValue("@InstructorCity", instructor.InstructorCity);
+                cmd06.Parameters.AddWithValue("@InstructorId", instructor.InstructorId);
                 int asile_nggih = cmd06.ExecuteNonQuery();
                 if (asile_nggih == 0)
                 {

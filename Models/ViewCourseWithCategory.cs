@@ -14,5 +14,5 @@ public class ViewCourseWithCategory
 
     public int CategoryId { get; set; }
 
-    public string CateroryName { get; set; } = null!;
+    public string CategoryName { get; set; } = null!;
 }

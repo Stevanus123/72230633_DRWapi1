@@ -44,6 +44,16 @@ public class CourseEF : ICourse
         }
     }
 
+    public IEnumerable<Course> GetAllCourses()
+    {
+        var courses = _context.Courses
+            .Include(c => c.Category)
+            .Include(c => c.Instructor)
+            .OrderByDescending(c => c.CourseId)
+            .ToList();
+        return courses;
+    }
+
     public Course GetCourseById(int courseId)
     {
         var course = _context.Courses.FirstOrDefault(c => c.CourseId == courseId);
@@ -60,6 +70,19 @@ public class CourseEF : ICourse
         return courses;
     }
 
+    public Course GetCoursesByIdCourse(int courseId)
+    {
+        var course = _context.Courses
+            .Include(c => c.Category)
+            .Include(c => c.Instructor)
+            .FirstOrDefault(c => c.CourseId == courseId);
+        if (course == null)
+        {
+            throw new Exception($"Course dengan ID {courseId} gak ditemuin!.");
+        }
+        return course;
+    }
+
     public Course UpdateCourse(Course course)
     {
         var existingCourse = GetCourseById(course.CourseId);
@@ -73,6 +96,7 @@ public class CourseEF : ICourse
             existingCourse.CourseDescription = course.CourseDescription;
             existingCourse.Duration = course.Duration;
             existingCourse.CategoryId = course.CategoryId;
+            existingCourse.InstructorId = course.InstructorId;
 
             _context.Courses.Update(existingCourse);
             _context.SaveChanges();

@@ -49,6 +49,11 @@ public class CourseNew07 : ICourse
         }
     }
 
+    public IEnumerable<Course> GetAllCourses()
+    {
+        throw new NotImplementedException();
+    }
+
     public Course GetCourseById(int courseId)
     {
         using (MySqlConnection conn = new MySqlConnection(this.conn))
@@ -121,6 +126,11 @@ public class CourseNew07 : ICourse
                 conn.Close();
             }
         }
+    }
+
+    public Course GetCoursesByIdCourse(int categoryId)
+    {
+        throw new NotImplementedException();
     }
 
     public Course UpdateCourse(Course course)

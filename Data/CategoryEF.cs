@@ -1,4 +1,5 @@
 using System;
+using Microsoft.EntityFrameworkCore;
 using WebApplication1.Models;
 
 namespace WebApplication1.Data;
@@ -29,11 +30,14 @@ public class CategoryEF : ICategory
         }
     }
 
+
     public List<Category> GetCategories()
     {
-        var categories = _context.Categories.OrderByDescending(c => c.CategoryId).ToList();
+        var categories = _context.Categories.OrderByDescending(c => c.CategoryId)
+        .ToList();
         return categories;
     }
+
 
     public Category GetCategoryById(int categoryId)
     {

@@ -1,9 +1,10 @@
 using System;
 
-namespace WebApplication1.Models;
+namespace WebApplication1.DTO;
 
-public class Category
+public class CategoryDTO
 {
     public int CategoryId { get; set; }
+
     public string CategoryName { get; set; } = null!;
 }

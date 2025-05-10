@@ -14,4 +14,8 @@ public interface ICourse
     Course UpdateCourse(Course course);
 
     void DeleteCourse(int courseId);
+
+    Course GetCoursesByIdCourse(int categoryId);
+
+    IEnumerable<Course> GetAllCourses();
 }

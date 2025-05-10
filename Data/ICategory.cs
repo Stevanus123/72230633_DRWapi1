@@ -15,5 +15,4 @@ public interface ICategory
 
     void DeleteCategory(int categoryId);
 
-
 }

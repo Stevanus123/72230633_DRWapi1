@@ -15,10 +15,12 @@ public class ApplicationDbContext : DbContext
         modelBuilder.Entity<Category>().ToTable("categories");
         modelBuilder.Entity<Course>().ToTable("courses");
         modelBuilder.Entity<Instructor>().ToTable("instructor72230633");
+        modelBuilder.Entity<AspUser>().ToTable("users_72230633");
     }
 
 
     public DbSet<Category> Categories { get; set; } = null!;
     public DbSet<Course> Courses { get; set; } = null!;
-    public DbSet<Instructor> Instructors {get; set;} = null!;
+    public DbSet<Instructor> Instructors { get; set; } = null!;
+    public DbSet<AspUser> AspUsers { get; set; } = null!;
 }

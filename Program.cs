@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using WebApplication1.Data;
 using WebApplication1.DTO;
 using WebApplication1.Models;
+using Pomelo.EntityFrameworkCore.MySql.Infrastructure;
 using AutoMapper;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -11,8 +12,11 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddOpenApi();
 
 // Menambahkan EF Core
+
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseMySQL(builder.Configuration.GetConnectionString("DefaultConnection") ?? String.Empty));
+    options.UseMySql(
+        builder.Configuration.GetConnectionString("DefaultConnection") ?? string.Empty,
+        ServerVersion.AutoDetect(builder.Configuration.GetConnectionString("DefaultConnection") ?? string.Empty)));
 
 //Sambung dengan CategoryEF
 builder.Services.AddScoped<ICategory, CategoryEF>();
@@ -22,6 +26,9 @@ builder.Services.AddScoped<IInstructor, InstructorEF>();
 
 //Sambung dengan CourseEF
 builder.Services.AddScoped<ICourse, CourseEF>();
+
+//Sambung dengan AspUserEF
+builder.Services.AddScoped<IAspUser, AspUserEF>();
 
 // menambahkan AutoMapper
 builder.Services.AddAutoMapper(typeof(mappingProfile));
@@ -199,6 +206,39 @@ app.MapDelete("api/v1/course/{id}", (ICourse courseData, int id) =>
 {
     courseData.DeleteCourse(id);
 });
+
+
+
+// Asp User punya tempat
+app.MapGet("api/v1/users", (IAspUser aspUser) =>
+{
+    return aspUser.GetAllUsers();
+});
+app.MapGet("api/v1/users/{username}", (IAspUser aspUser, string username) =>
+{
+    return aspUser.GetUserByUsername(username);
+});
+app.MapPost("api/v1/users", (IAspUser aspUser, AspUser user) =>
+{
+    return aspUser.RegisterUser(user);
+});
+app.MapPut("api/v1/users", (IAspUser aspUser, AspUser user) =>
+{
+    return aspUser.UpdateUser(user);
+});
+app.MapDelete("api/v1/users/{username}", (IAspUser aspUser, string username) =>
+{
+    aspUser.DeleteUser(username);
+});
+app.MapGet("api/v1/users/{username}/{password}", (IAspUser aspUser, string username, string password) =>
+{
+    var userLogin = aspUser.Login(username, password);
+    if (userLogin)
+        return "Kamu berhasil login!";
+    else
+        return "Username/password salah!";
+});
+
 
 app.Run();
 

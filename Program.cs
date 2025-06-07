@@ -4,6 +4,9 @@ using WebApplication1.DTO;
 using WebApplication1.Models;
 using Pomelo.EntityFrameworkCore.MySql.Infrastructure;
 using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -33,6 +36,31 @@ builder.Services.AddScoped<IAspUser, AspUserEF>();
 // menambahkan AutoMapper
 builder.Services.AddAutoMapper(typeof(mappingProfile));
 
+// Menambahkan Authentication
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+}).AddJwtBearer(options =>
+{
+    options.TokenValidationParameters = new TokenValidationParameters
+    {
+        ValidateIssuer = false,
+        ValidateAudience = false,
+        ValidateIssuerSigningKey = true,
+        IssuerSigningKey = new SymmetricSecurityKey(WebApplication1.Helpers.ApiSettings.GenerateSecretByte()),
+        ClockSkew = TimeSpan.Zero
+    };
+});
+
+// Menambahkan Authorization
+builder.Services.AddAuthorization(options =>
+{
+    options.DefaultPolicy = new AuthorizationPolicyBuilder(JwtBearerDefaults.AuthenticationScheme)
+        .RequireAuthenticatedUser()
+        .Build();
+});
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -41,6 +69,8 @@ if (app.Environment.IsDevelopment())
     app.MapOpenApi();
 }
 
+app.UseAuthentication();
+app.UseAuthorization();
 app.UseHttpsRedirection();
 
 var summaries = new[]
@@ -91,7 +121,7 @@ app.MapGet("api/v1/categories", (ICategory categoryData) =>
 {
     var categories = categoryData.GetCategories();
     return categories;
-});
+}).RequireAuthorization();
 
 app.MapGet("api/v1/categories/{id}", (ICategory categoryData, int id) =>
 {
@@ -230,13 +260,19 @@ app.MapDelete("api/v1/users/{username}", (IAspUser aspUser, string username) =>
 {
     aspUser.DeleteUser(username);
 });
-app.MapGet("api/v1/users/{username}/{password}", (IAspUser aspUser, string username, string password) =>
+app.MapPost("api/v1/login", (IAspUser aspUserData, LoginDTO loginDTO) =>
 {
-    var userLogin = aspUser.Login(username, password);
-    if (userLogin)
-        return "Kamu berhasil login!";
+    if (aspUserData.Login(loginDTO.Username, loginDTO.Password))
+    {
+        var token = aspUserData.GenerateToken(loginDTO.Username);
+        loginDTO.Password = string.Empty; 
+        loginDTO.Token = token;
+        return Results.Ok(loginDTO);
+    }
     else
-        return "Username/password salah!";
+    {
+        return Results.BadRequest("Username atau password salah!");
+    }
 });
 
 

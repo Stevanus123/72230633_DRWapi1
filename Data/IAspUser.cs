@@ -11,4 +11,6 @@ public interface IAspUser
     AspUser UpdateUser(AspUser user);
     void DeleteUser(string username);
     bool Login(string username, string password);
+
+    string GenerateToken(string username);
 }

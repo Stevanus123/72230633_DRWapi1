@@ -179,3 +179,4 @@ D:\SEMESTER 4\DRW API\WebApplication1\WebApplication1\bin\Debug\net9.0\AutoMappe
 D:\SEMESTER 4\DRW API\WebApplication1\WebApplication1\bin\Debug\net9.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
 D:\SEMESTER 4\DRW API\WebApplication1\WebApplication1\bin\Debug\net9.0\MySqlConnector.dll
 D:\SEMESTER 4\DRW API\WebApplication1\WebApplication1\bin\Debug\net9.0\Pomelo.EntityFrameworkCore.MySql.dll
+D:\SEMESTER 4\DRW API\WebApplication1\WebApplication1\bin\Debug\net9.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
